@@ -1,8 +1,8 @@
 [project]
 name = "beizi"
-version = "1.0.0"
-description = "杯子计算器"
+version = "1.1.0"
+description = "乐迪计算器"
+requires-python = ">=3.9"
 
 [tool.flet]
-product_name = "杯子计算器"
-app_icon = "icon.png"
+product_name = "乐迪计算器"
