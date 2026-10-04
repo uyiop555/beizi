@@ -1,5 +1,5 @@
 [project]
-name = "beizi"
+name = "乐迪计算器"
 version = "1.1.0"
 description = "乐迪计算器"
 requires-python = ">=3.9"

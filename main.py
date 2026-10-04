@@ -7,7 +7,7 @@ from calculator import calc_view
 from creations import creations_view  # 导入作品页
 
 def main(page: ft.Page):
-    page.title = "数学工具"
+    page.title = "乐迪计算器"
     page.bgcolor = BG
     page.window_width = 400
     page.window_height = 700
