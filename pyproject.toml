@@ -1,0 +1,8 @@
+[project]
+name = "beizi"
+version = "1.0.0"
+description = "杯子计算器"
+
+[tool.flet]
+product_name = "杯子计算器"
+app_icon = "icon.png"

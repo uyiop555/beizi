@@ -37,5 +37,5 @@ def solver_view(page, navigate):
             ft.Divider(height=20, color="transparent"),
             ft.Button("计算", on_click=solve, bgcolor=PRIMARY, color="white", width=200),
             ft.Divider(height=30, color="transparent"), result,
-        ], alignment=ft.MainAxisAlignment.START, horizontal_alignment=ft.CrossAxisAlignment.CENTER)
+        ], alignment=ft.MainAxisAlignment.CENTER, horizontal_alignment=ft.CrossAxisAlignment.CENTER, expand=True,)
     ], bgcolor=BG)

@@ -43,5 +43,5 @@ def calc_view(page, navigate):
         ft.AppBar(title=ft.Text("计算器"), bgcolor=PRIMARY, color="white",
                   leading=ft.IconButton(ft.Icons.ARROW_BACK, on_click=lambda _: navigate("/"))),
         ft.Column([display, ft.Divider(height=10, color="transparent"), *rows],
-                  alignment=ft.MainAxisAlignment.CENTER, horizontal_alignment=ft.CrossAxisAlignment.CENTER)
+                  alignment=ft.MainAxisAlignment.CENTER, horizontal_alignment=ft.CrossAxisAlignment.CENTER, expand=True,)
     ], bgcolor=BG)
