@@ -23,12 +23,21 @@ def home_view(page, navigate):
         controls=[
             ft.Column(
                 [
-                    ft.Text("杯子计算器", size=32, weight=ft.FontWeight.BOLD, color=TEXT),
+                    ft.Text("乐迪计算器", size=32, weight=ft.FontWeight.BOLD, color=TEXT),
                     ft.Text("选择一个功能", size=14, color=MUTED),
                     ft.Divider(height=40, color="transparent"),
                     make_card("解一元二次方程", "/solver", "求解 ax² + bx + c = 0", navigate),
                     make_card("BMI 计算", "/bmi", "偏瘦，正常，超重，肥胖", navigate),
                     make_card("计算器", "/calc", "滚木", navigate),
+                    ft.Divider(height=20, color="transparent"),
+                    ft.Button(
+                        "神的其他作品",
+                        on_click=lambda _: navigate("/creations"),
+                        bgcolor="#95a5a6",
+                        color="white",
+                        height=40,
+                        width=260,
+                    )
                 ],
                 alignment=ft.MainAxisAlignment.CENTER,
                 horizontal_alignment=ft.CrossAxisAlignment.CENTER,
