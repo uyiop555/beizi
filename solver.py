@@ -27,15 +27,28 @@ def solver_view(page, navigate):
                 result.value = f"两个实数根\nx₁ = {fmt(x1)}\nx₂ = {fmt(x2)}\nΔ = {fmt(delta)}"; result.color = OK
         page.update()
 
-    return ft.View(route="/solver", padding=20, controls=[
-        ft.AppBar(title=ft.Text("解一元二次方程"), bgcolor=PRIMARY, color="white",
-                  leading=ft.IconButton(ft.Icons.ARROW_BACK, on_click=lambda _: navigate("/"))),
-        ft.Column([
-            ft.Text("ax² + bx + c = 0", size=16, color=TEXT),
-            ft.Divider(height=20, color="transparent"),
-            ft.Row([a_in, b_in, c_in], alignment=ft.MainAxisAlignment.CENTER, spacing=10),
-            ft.Divider(height=20, color="transparent"),
-            ft.Button("计算", on_click=solve, bgcolor=PRIMARY, color="white", width=200),
-            ft.Divider(height=30, color="transparent"), result,
-        ], alignment=ft.MainAxisAlignment.CENTER, horizontal_alignment=ft.CrossAxisAlignment.CENTER, expand=True,)
-    ], bgcolor=BG)
+    return ft.View(
+        route="/solver",
+        padding=0,
+        controls=[
+            ft.AppBar(
+                title=ft.Text("解一元二次方程", color="white", weight=ft.FontWeight.BOLD),
+                bgcolor=PRIMARY,
+                leading=ft.IconButton(ft.Icons.ARROW_BACK, icon_color="white", on_click=lambda _: navigate("/")),
+            ),
+            ft.Container(
+                content=ft.Column([
+                    ft.Text("ax² + bx + c = 0", size=16, color=TEXT),
+                    ft.Divider(height=20, color="transparent"),
+                    ft.Row([a_in, b_in, c_in], alignment=ft.MainAxisAlignment.CENTER, spacing=10),
+                    ft.Divider(height=20, color="transparent"),
+                    ft.Button("计算", on_click=solve, bgcolor=PRIMARY, color="white", width=200),
+                    ft.Divider(height=30, color="transparent"),
+                    result,
+                ], alignment=ft.MainAxisAlignment.CENTER, horizontal_alignment=ft.CrossAxisAlignment.CENTER, expand=True),
+                padding=20,
+                expand=True,
+            )
+        ],
+        bgcolor=BG,
+    )

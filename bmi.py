@@ -23,15 +23,29 @@ def bmi_view(page, navigate):
         result.value = f"BMI = {bmi:.1f}\n你的范围：{level}\n\n参考：\n偏瘦 < 18.5\n正常 18.5 ~ 24\n超重 24 ~ 28\n肥胖 ≥ 28"
         page.update()
 
-    return ft.View(route="/bmi", padding=20, controls=[
-        ft.AppBar(title=ft.Text("BMI 计算"), bgcolor=PRIMARY, color="white",
-                  leading=ft.IconButton(ft.Icons.ARROW_BACK, on_click=lambda _: navigate("/"))),
-        ft.Column([
-            ft.Text("BMI = 体重(kg) ÷ 身高(m)²", size=14, color=MUTED),
-            ft.Divider(height=20, color="transparent"),
-            ft.Row([h_in, w_in], alignment=ft.MainAxisAlignment.CENTER, spacing=15),
-            ft.Divider(height=20, color="transparent"),
-            ft.Button("计算", on_click=calc, bgcolor=PRIMARY, color="white", width=200),
-            ft.Divider(height=30, color="transparent"), result,
-        ], alignment=ft.MainAxisAlignment.CENTER, horizontal_alignment=ft.CrossAxisAlignment.CENTER, expand=True,)
-    ], bgcolor=BG)
+    return ft.View(
+        route="/bmi",
+        padding=0,
+        controls=[
+            ft.AppBar(
+                title=ft.Text("BMI 计算", color="white", weight=ft.FontWeight.BOLD),
+                bgcolor=PRIMARY,
+                leading=ft.IconButton(ft.Icons.ARROW_BACK, icon_color="white", on_click=lambda _: navigate("/")),
+            ),
+            # 下方内容加自己的边距
+            ft.Container(
+                content=ft.Column([
+                    ft.Text("BMI = 体重(kg) ÷ 身高(m)²", size=14, color=MUTED),
+                    ft.Divider(height=20, color="transparent"),
+                    ft.Row([h_in, w_in], alignment=ft.MainAxisAlignment.CENTER, spacing=15),
+                    ft.Divider(height=20, color="transparent"),
+                    ft.Button("计算", on_click=calc, bgcolor=PRIMARY, color="white", width=200),
+                    ft.Divider(height=30, color="transparent"),
+                    result,
+                ], alignment=ft.MainAxisAlignment.CENTER, horizontal_alignment=ft.CrossAxisAlignment.CENTER, expand=True),
+                padding=20,
+                expand=True,
+            )
+        ],
+        bgcolor=BG,
+    )
