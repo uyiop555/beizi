@@ -19,11 +19,11 @@ def make_grid_card(title, desc, route, navigate, is_web=False):
     return ft.Container(
         content=ft.Column([
             title_row,
-            ft.Text(desc, size=12, color=MUTED),
+            ft.Text(desc, size=10, color=MUTED),
         ]),
         bgcolor=CARD,
         border_radius=10,
-        padding=15,
+        padding=12,
         height=100,
         on_click=lambda _: navigate(route),
         expand=1,
@@ -36,7 +36,7 @@ def home_view(page, navigate):
         {"title": "解方程", "desc": "解ax²+bx+c=0", "route": "/solver", "is_web": False},
         {"title": "BMI 计算", "desc": "偏瘦，正常，超重，肥胖", "route": "/bmi", "is_web": False},
         {"title": "计算器", "desc": "滚木", "route": "/calc", "is_web": False},
-        {"title": "萧山十中校园服务网页", "desc": "傻福十中", "route": "/webview", "is_web": True},
+        {"title": "萧山十中校园服务", "desc": "傻福十中", "route": "/webview", "is_web": True},
     ]
 
     search_field = ft.TextField(
