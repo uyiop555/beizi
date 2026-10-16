@@ -4,11 +4,13 @@ from home import home_view
 from solver import solver_view
 from bmi import bmi_view
 from calculator import calc_view
-from creations import creations_view  # 导入作品页
+from creations import creations_view
+from web_view import web_view
 
 def main(page: ft.Page):
     page.title = "乐迪计算器"
     page.bgcolor = BG
+    page.theme_mode = ft.ThemeMode.DARK
     page.window_width = 400
     page.window_height = 700
     page.theme = ft.Theme(font_family="Microsoft YaHei")
@@ -23,6 +25,8 @@ def main(page: ft.Page):
             page.views.append(calc_view(page, navigate))
         elif route == "/creations":
             page.views.append(creations_view(page, navigate))
+        elif route == "/webview":
+            page.views.append(web_view(page, navigate))
         else:
             page.views.append(home_view(page, navigate))
         page.update()
