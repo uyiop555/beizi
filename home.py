@@ -6,7 +6,7 @@ def make_grid_card(title, desc, route, navigate, is_web=False):
         [
             ft.Text(title, size=16, weight=ft.FontWeight.BOLD, color=TEXT),
             ft.Container(
-                content=ft.Text("(网页)", size=10, color=PRIMARY),
+                content=ft.Text("网页", size=10, color=PRIMARY),
                 bgcolor="#332200",
                 padding=ft.Padding(left=4, right=4, top=1, bottom=1),
                 border_radius=4,
@@ -36,6 +36,7 @@ def home_view(page, navigate):
         {"title": "解方程", "desc": "解ax²+bx+c=0", "route": "/solver", "is_web": False},
         {"title": "BMI 计算", "desc": "偏瘦，正常，超重，肥胖", "route": "/bmi", "is_web": False},
         {"title": "计算器", "desc": "滚木", "route": "/calc", "is_web": False},
+        {"title": "函数图像绘制", "desc": "我居然写出这个东西了", "route": "/hstx", "is_web": False},
         {"title": "萧山十中校园服务", "desc": "傻福十中", "route": "/webview", "is_web": True},
     ]
 

@@ -5,6 +5,7 @@ from solver import solver_view
 from bmi import bmi_view
 from calculator import calc_view
 from creations import creations_view
+from hstx import hstx_view
 from web_view import web_view
 
 def main(page: ft.Page):
@@ -25,6 +26,8 @@ def main(page: ft.Page):
             page.views.append(calc_view(page, navigate))
         elif route == "/creations":
             page.views.append(creations_view(page, navigate))
+        elif route == "/hstx":
+            page.views.append(hstx_view(page, navigate))
         elif route == "/webview":
             page.views.append(web_view(page, navigate))
         else:
