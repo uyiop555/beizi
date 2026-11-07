@@ -1,17 +1,10 @@
 import flet as ft
 from theme import BG, CARD, PRIMARY, TEXT, MUTED
 
-def make_grid_card(title, desc, route, navigate, is_web=False):
+def make_grid_card(title, desc, route, navigate, is_web=False, python=False, html=False):
     title_row = ft.Row(
         [
-            ft.Text(title, size=16, weight=ft.FontWeight.BOLD, color=TEXT),
-            ft.Container(
-                content=ft.Text("网页", size=10, color=PRIMARY),
-                bgcolor="#332200",
-                padding=ft.Padding(left=4, right=4, top=1, bottom=1),
-                border_radius=4,
-            ) if is_web else ft.Container()
-        ],
+            ft.Text(title, size=16, weight=ft.FontWeight.BOLD, color=TEXT)],
         alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
         vertical_alignment=ft.CrossAxisAlignment.CENTER
     )
@@ -19,24 +12,34 @@ def make_grid_card(title, desc, route, navigate, is_web=False):
     return ft.Container(
         content=ft.Column([
             title_row,
-            ft.Text(desc, size=10, color=MUTED),
-        ]),
-        bgcolor=CARD,
-        border_radius=10,
-        padding=12,
-        height=100,
-        on_click=lambda _: navigate(route),
-        expand=1,
-        ink=True,
+            ft.Row([
+                ft.Text(desc, size=10, color=MUTED, expand=True),
+                ft.Container(
+                    content=ft.Text("(网页)", size=9, color=PRIMARY),
+                    bgcolor="#332200", padding=ft.Padding(left=4, right=4, top=1, bottom=1), border_radius=4,
+                ) if is_web else ft.Container(),
+                ft.Container(
+                    content=ft.Text("python", size=9, color=PRIMARY),
+                    bgcolor="#332200", padding=ft.Padding(left=4, right=4, top=1, bottom=1), border_radius=4,
+                ) if python else ft.Container(),
+                ft.Container(
+                    content=ft.Text("html", size=9, color=PRIMARY),
+                    bgcolor="#332200", padding=ft.Padding(left=4, right=4, top=1, bottom=1), border_radius=4,
+                ) if html else ft.Container()
+            ],
+        alignment=ft.MainAxisAlignment.SPACE_BETWEEN, vertical_alignment=ft.CrossAxisAlignment.END)
+        ], alignment=ft.MainAxisAlignment.SPACE_BETWEEN),
+        bgcolor=CARD, border_radius=10, padding=12, height=100,
+        on_click=lambda _: navigate(route), expand=1, ink=True,
     )
 
 
 def home_view(page, navigate):
     tools_data = [
-        {"title": "解方程", "desc": "解ax²+bx+c=0", "route": "/solver", "is_web": False},
-        {"title": "BMI 计算", "desc": "偏瘦，正常，超重，肥胖", "route": "/bmi", "is_web": False},
-        {"title": "计算器", "desc": "滚木", "route": "/calc", "is_web": False},
-        {"title": "函数图像绘制", "desc": "我居然写出这个东西了", "route": "/hstx", "is_web": False},
+        {"title": "解方程", "desc": "解ax²+bx+c=0", "route": "/solver", "is_web": False, "python": True},
+        {"title": "BMI 计算", "desc": "偏瘦，正常，超重，肥胖", "route": "/bmi", "is_web": False, "python": True},
+        {"title": "计算器", "desc": "滚木", "route": "/calc", "is_web": False, "python": True},
+        {"title": "函数图像绘制", "desc": "我居然写出这个东西了", "route": "/hstx", "is_web": False, "html": True},
         {"title": "萧山十中校园服务", "desc": "傻福十中", "route": "/webview", "is_web": True},
     ]
 
@@ -99,7 +102,9 @@ def home_view(page, navigate):
                         item["desc"],
                         item["route"],
                         navigate,
-                        item.get("is_web", False)
+                        item.get("is_web", False),
+                        item.get("python", False),
+                        item.get("html", False)
                     ))
                 if len(row_controls) == 1:
                     row_controls.append(ft.Container(expand=1))
