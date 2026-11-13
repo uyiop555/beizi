@@ -8,6 +8,7 @@ from creations import creations_view
 from hstx import hstx_view
 from web_view import web_view
 from ai_math_view import ai_math_view
+from ai_select_view import ai_select_view
 
 def main(page: ft.Page):
     page.title = "乐迪计算器"
@@ -31,8 +32,10 @@ def main(page: ft.Page):
             page.views.append(hstx_view(page, navigate))
         elif route == "/webview":
             page.views.append(web_view(page, navigate))
-        elif route == "/ai_math_view":
+        elif route == "/ai_math":
             page.views.append(ai_math_view(page, navigate))
+        elif route == "/ai_select_view":
+            page.views.append(ai_select_view(page, navigate))
         else:
             page.views.append(home_view(page, navigate))
         page.update()

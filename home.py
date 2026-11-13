@@ -36,7 +36,7 @@ def make_grid_card(title, desc, route, navigate, is_web=False, python=False, htm
 
 def home_view(page, navigate):
     tools_data = [
-        {"title": "AI", "desc": "DeepSeek-v4.1-Flash大模型\n(你们问问题花的都是我的token啊)", "route": "/ai_math_view", "is_web": False},
+        {"title": "AI", "desc": "什么时候用不了了应该是我没token了", "route": "/ai_select_view", "is_web": False},
         {"title": "解一元二次方程", "desc": "解ax²+bx+c=0", "route": "/solver", "is_web": False, "python": True},
         {"title": "BMI 计算", "desc": "偏瘦，正常，超重，肥胖", "route": "/bmi", "is_web": False, "python": True},
         {"title": "计算器", "desc": "滚木", "route": "/calc", "is_web": False, "python": True},
