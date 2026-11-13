@@ -1,12 +1,14 @@
 [project]
 name = "beizi"
-version = "1.2.0"
+version = "1.8.0"
 description = "乐迪计算器"
 requires-python = ">=3.9"
 dependencies = [
     "flet",
     "flet-webview-all",
     "openai",
+    "google-genai",
+    "httpx",
 ]
 
 [tool.flet]
